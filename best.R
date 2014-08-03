@@ -21,7 +21,7 @@ best <- function(state, outcome) {
     best <- data[which.min(data[, 11]), "Hospital.Name"]
   }
   else if (outcome == "heart failure") {
-    best <- data[which.min(data[, 17]), "Hospital.Name"]
+    best <- data[which.min(dancota[, 17]), "Hospital.Name"]
   }
   else {
     best <- data[which.min(data[, 23]), "Hospital.Name"]

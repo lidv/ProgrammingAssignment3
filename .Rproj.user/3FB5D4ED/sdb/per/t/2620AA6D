@@ -1,0 +1,17 @@
+{
+    "contents" : "rankall <- function(outcome, num = \"best\") {\n  ## Read outcome data\n  data <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n  data <- data[c(2, 7, 11, 17, 23)]\n  data[, c(3, 4, 5)] <- sapply(data[, c(3, 4, 5)], as.numeric)\n  \n  ## Check that state and outcome are valid\n  outcomes <- c('heart attack', 'heart failure', 'pneumonia')\n  if (!outcome %in% outcomes) stop(\"invalid outcome\")\n  \n  ## For each state, find the hospital of the given rank\n  ## Return a data frame with the hospital names and the\n  ## (abbreviated) state name\n  \n  states <- unique(data$State)\n  states <- sort(states)\n  \n  ranks <- data.frame(hospital=NA, state=NA)\n  \n  for (i in 1:length(states)) {\n    ranks[i, ] <- c(rankhospital(states[i], outcome, num), states[i])\n  }\n  \n  ranks\n}",
+    "created" : 1407094371999.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1680958901",
+    "id" : "2620AA6D",
+    "lastKnownWriteTime" : 1407096121,
+    "path" : "~/GitHub/ProgrammingAssignment3/ProgrammingAssignment3/rankall.R",
+    "project_path" : "rankall.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
